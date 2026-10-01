@@ -239,7 +239,7 @@ print(f"Clean dataset: {len(df_clean)} records")
 
 ##  Database — Supabase SQL
 
-**Folder:** `SupabasSQL/`
+**Folder:** `sql/`
 
 The cleaned dataset is stored in a Supabase PostgreSQL instance. The Streamlit app queries Supabase directly — meaning the recommendation engine always reads the latest data without redeploying.
 
@@ -422,7 +422,7 @@ Coffee_Brewing_Dashboard_Final.xlsx ← clean master dataset
 ├──►  Kaggle: public dataset
 │
 ├──► Supabase PostgreSQL
-│    SupabasSQL/ → recommend_brewing_method() stored function
+│    sql/ → recommend_brewing_method() stored function
 │
 ├──► Tableau Public
 │    Dashboard: method comparison / flavour matrix / origin map
@@ -463,22 +463,21 @@ Raw values (brew time in minutes, temperature in °C, grind size as text) are in
 ##  Project Structure
 
 ```
-Head-Barista-Coffee-Intelligence/
+HEAD-BARISTA-COFFEE-INTELLIGENCE/
 │
-├── BREWING_METHODS_SCRAPING.ipynb           # Web scraping + cleaning pipeline
+├── app.py                          # Streamlit app (reads coffee_dataset.csv)
+├── coffee_dataset.csv              # Dataset used by the app
+├── requirements.txt, requirements-dev.txt
 │
-├── Coffee_Brewing_Methods_Raw.xlsx          # Raw scraped data
-├── Coffee_Brewing_Dashboard_Final.xlsx      # Cleaned master dataset
+├── notebooks/
+│   └── BREWING_METHODS_SCRAPING.ipynb   # Scraping + cleaning pipeline
+├── data/
+│   ├── Coffee_Brewing_Methods_Raw.xlsx      # Raw scraped data
+│   └── Coffee_Brewing_Dashboard_Final.xlsx  # Cleaned dataset (Tableau / Excel dashboard)
+├── sql/                            # SQL dataset scripts and CSV copy
 │
-├── Coffee_Beans_Consultant_Streammlit_App/  # Streamlit web app
-│   ├── app.py                               # Main app — connects to Supabase
-│   └── requirements.txt
-│
-├── SupabasSQL/                              # Database setup
-│   ├── create_tables.sql                    # Schema definition
-│   └── recommend_function.sql              # Stored function
-│
-└── Readme.md
+├── tests/test_app_smoke.py         # The app must render without errors
+└── .github/workflows/ci.yml        # Runs the tests on every push and PR
 ```
 
 ---
@@ -486,25 +485,20 @@ Head-Barista-Coffee-Intelligence/
 ##  How to Run Locally
 
 ```bash
-# Clone
-git clone https://github.com/brianphu2310/Head-Barista-Coffee-Intelligence.git
-cd Head-Barista-Coffee-Intelligence
+git clone https://github.com/brianphu2310/HEAD-BARISTA-COFFEE-INTELLIGENCE.git
+cd HEAD-BARISTA-COFFEE-INTELLIGENCE
 
-# Install dependencies
-pip install -r Coffee_Beans_Consultant_Streammlit_App/requirements.txt
+pip install -r requirements.txt
+streamlit run app.py
 
-# Set Supabase credentials (get from your Supabase project settings)
-export SUPABASE_URL="your-project-url"
-export SUPABASE_KEY="your-anon-key"
-
-# Run Streamlit app
-streamlit run Coffee_Beans_Consultant_Streammlit_App/app.py
+# Optional: run the tests
+pip install -r requirements-dev.txt && python -m pytest -q
 ```
 
 **Or run the scraping notebook:**
 
 ```bash
-jupyter notebook BREWING_METHODS_SCRAPING.ipynb
+jupyter notebook notebooks/BREWING_METHODS_SCRAPING.ipynb
 ```
 
 **Want the data without scraping?** Download directly from Kaggle:
