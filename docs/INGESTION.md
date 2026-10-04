@@ -5,7 +5,8 @@ Reusable ingestion modules ported from `notebooks/BREWING_METHODS_SCRAPING.ipynb
 ## Status (read first)
 
 - **Parser verified on fixtures only.** The parser unit tests use small hand-written HTML fixtures (`tests/fixtures/`, labelled as not captured pages) that mimic the selectors the notebook uses.
-- **Live run not verified in CI.** CI has no network access to the target sites, and the live fetch has never been run from this module. The notebook's selectors may no longer match the live markup.
+- **Live run verified on a GitHub runner (4 Oct 2026).** The manual workflow [`live-ingestion.yml`](../.github/workflows/live-ingestion.yml) ran the module against the real sites and wrote the result to [`LIVE_RUN.md`](LIVE_RUN.md) (row counts, first rows, log tail). Result: Wikipedia 13 rows, Healthline 3 rows, National Coffee Association 5 method headings (their `guide_snippet` text came back empty, so that selector needs work). Perfect Daily Grind answered with a 221-character "browser check" page (HTTP 202) and produced 0 rows. The module does not try to get around such checks; that source is currently not usable by this scraper.
+- **Not wired into the normal CI** (it would make CI depend on third-party sites); run it from the Actions tab.
 - **Check the site's terms of use before running.** The fetcher reads `robots.txt` and stops if the URL is disallowed, but that is not a substitute for reading the terms.
 - **For personal / portfolio use only.** Do not redistribute scraped content.
 - Not wired into CI as a live job, and not part of `python -m pipeline`.
