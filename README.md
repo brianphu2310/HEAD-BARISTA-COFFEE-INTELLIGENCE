@@ -100,6 +100,27 @@ I left the counter, opened a laptop, and built this.
 
 ---
 
+### 1b — Power BI Dashboard · Barista's Brewing Handbook
+
+The same brewing data rebuilt in Power BI (the Tableau dashboard above is kept). Pick your situation with the dropdowns (time available, taste, acidity, health focus, sleep impact) and every page filters together. A one-line summary at the top says what the selection means, for example "13 methods | best overall: Cold Drip".
+
+| Page | What it answers |
+|---|---|
+| Summary | Which method scores best overall, antioxidants vs caffeine by taste |
+| How to brew | Time, caffeine, equipment and a quick guide for each method |
+| Equipments | Brew time and complexity by method, equipment needed |
+| Advices | Caffeine per cup, coloured by sleep impact |
+| Beans | 32 beans by origin and roast, origin map, rating by roast |
+| About | Definitions, source and limits |
+
+<img src="docs/powerbi/barista-1.png" alt="Power BI summary page" width="900" />
+
+- File: [`powerbi/barista_dashboard.pbix`](powerbi/barista_dashboard.pbix). All six pages: [`docs/powerbi/`](docs/powerbi/).
+- Model: star schema (`fact_coffee_rating`, `dim_brew_method`, `dim_coffee`, `dim_origin`, `dim_roast`, `dim_process`, `dim_flavor`, `bridge_coffee_flavor`) (`bridge_coffee_flavor` links beans to flavours).
+- Limits: antioxidant rank and taste scores are the repo workbook's relative scores, not lab measurements. The time / acidity / health-focus buckets are analyst rules derived from those scores, not medical advice. The origin map is bubbles at average bean coordinates, not a true basemap. The source of the 32-bean rows is not documented in the repo.
+
+---
+
 ### 2 — Streamlit App · Coffee Beans Consultant
 
 >  **[Launch App →](https://testing-wzx24gsioxffy3mkvtvnsj.streamlit.app)**

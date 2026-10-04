@@ -17,6 +17,6 @@ Every path below exists in this repo and is exercised by the tests or CI.
 | Web scraping (existing notebook, documented only) | [`notebooks/BREWING_METHODS_SCRAPING.ipynb`](../notebooks/BREWING_METHODS_SCRAPING.ipynb): not re-run or modified here; the pipeline starts from its committed outputs |
 | Reusable, polite web ingestion: `robots.txt` check, identifying User-Agent, rate limiting, retries with backoff, on-disk HTML cache, pure parsers separated from fetching, CSV with timestamp and source URL. Parsers verified on hand-written fixtures; live run not verified in CI | [`ingestion/fetch.py`](../ingestion/fetch.py), [`ingestion/brewing_methods.py`](../ingestion/brewing_methods.py), [`docs/INGESTION.md`](INGESTION.md) |
 | Offline tests for network code (mocked HTTP, fake clock, fixtures) | [`tests/test_ingestion_fetch.py`](../tests/test_ingestion_fetch.py), [`tests/test_ingestion_brewing.py`](../tests/test_ingestion_brewing.py), [`tests/fixtures/`](../tests/fixtures/) |
-| App / BI delivery | Streamlit app [`app.py`](../app.py); Tableau and Colab links in the [README](../README.md) |
+| App / BI delivery | Streamlit app [`app.py`](../app.py); Tableau and Colab links in the [README](../README.md); Power BI report with DAX measures and a star-schema model in [`powerbi/barista_dashboard.pbix`](../powerbi/barista_dashboard.pbix) |
 
 Not claimed: no verified live ingestion (the ingestion modules have not been run against the live sites), no API ingestion, no orchestration tool, no cloud warehouse, no statistical modelling.
