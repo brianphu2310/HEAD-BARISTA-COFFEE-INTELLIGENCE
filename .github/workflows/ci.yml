@@ -17,6 +17,10 @@ jobs:
           cache-dependency-path: requirements*.txt
       - name: Install dependencies
         run: pip install -r requirements-dev.txt
+      - name: Ingestion tests (offline: parsers on hand-written fixtures, robots/rate-limit/retry with mocked HTTP)
+        run: |
+          python -m pytest -q tests/test_ingestion_*.py
+          python -m ingestion.brewing_methods --help > /dev/null
       - name: Run tests (dataset, pipeline, SQL queries)
         run: python -m pytest -q
       - name: Run the ETL pipeline and analysis queries end to end

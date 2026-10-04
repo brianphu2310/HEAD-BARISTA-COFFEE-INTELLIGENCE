@@ -12,3 +12,7 @@ Thumbs.db
 
 warehouse.db
 *.db
+
+# Ingestion: cached raw HTML and raw scrape output are never committed
+data/raw_html/
+data/raw/

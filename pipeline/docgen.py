@@ -120,7 +120,8 @@ def build(db_path: Path = DB_PATH) -> str:
              "Provenance, as far as the repo shows: `coffee_dataset.csv` (beans and ratings) has no documented source. "
              "The brewing-method attributes are hard-coded dictionaries in `notebooks/BREWING_METHODS_SCRAPING.ipynb` "
              "(comments cite USDA, Mayo Clinic and specialty coffee associations); the notebook also scrapes "
-             "Wikipedia/Healthline snippets into a separate raw sheet. Nothing here was re-verified against those sources.", ""]
+             "Wikipedia/Healthline snippets into a separate raw sheet. Nothing here was re-verified against those sources. "
+             "A reusable port of the scraping code lives in `ingestion/` (see `docs/INGESTION.md`); its parsers are tested on hand-written fixtures only and the live run is not verified in CI.", ""]
     for table in TABLE_ORDER:
         info = con.execute(f'PRAGMA table_info("{table}")').fetchall()  # cid,name,type,notnull,default,pk
         missing = [c[1] for c in info if c[1] not in DESCRIPTIONS[table]]

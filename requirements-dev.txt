@@ -1,3 +1,4 @@
 -r requirements.txt
+-r requirements-ingestion.txt
 pytest>=8
 openpyxl>=3.1

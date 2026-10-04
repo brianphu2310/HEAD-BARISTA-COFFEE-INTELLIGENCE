@@ -486,6 +486,27 @@ python -m pytest -q           # 36 tests: pipeline, data quality, queries, docs 
 
 ---
 
+## Ingestion
+
+Reusable ingestion module ported from the existing scraping notebook (`notebooks/BREWING_METHODS_SCRAPING.ipynb`). Only the sources and selectors the notebook already uses were ported.
+
+```bash
+pip install -r requirements-ingestion.txt
+python -m ingestion.brewing_methods --out data/raw
+python -m pytest -q tests/test_ingestion_*.py     # offline
+```
+
+Sources ported (the four in the notebook): Wikipedia (13 method pages), Healthline caffeine table, Perfect Daily Grind guide, National Coffee Association guide. Output: `data/raw/brewing_<source>.csv`. The notebook's hard-coded master dictionaries (brew time, caffeine, sensory scores) are curated values, not scraped, and are not part of ingestion. One deliberate deviation: the notebook's Perfect Daily Grind brew-time regex had a typo (`S]*`) that made it almost never match; it is corrected to the evident intent.
+
+What it does: checks `robots.txt` (`urllib.robotparser`) and aborts politely if disallowed, sends an identifying User-Agent, waits at least 1 second between requests (default 1.5-2 s), retries with exponential backoff, caches raw HTML under `data/raw_html/` (git-ignored), and writes CSV with `scraped_at` and `source_url` columns. Parsing is separate from fetching: the parsers are pure functions of HTML text. Details in [docs/INGESTION.md](docs/INGESTION.md).
+
+- **Parser verified on fixtures only.** The parser unit tests use small hand-written HTML fixtures (`tests/fixtures/`, labelled as not captured pages) that mimic the selectors the notebook uses.
+- **Live run not verified in CI.** CI has no network access to the target sites, and the live fetch has never been run from this module. The notebook's selectors may no longer match the live markup.
+- **Check the site's terms of use before running.** The fetcher reads `robots.txt` and stops if the URL is disallowed, but that is not a substitute for reading the terms.
+- **For personal / portfolio use only.** Do not redistribute scraped content.
+
+---
+
 ##  Project Structure
 
 ```
@@ -497,6 +518,7 @@ HEAD-BARISTA-COFFEE-INTELLIGENCE/
 │
 ├── notebooks/
 │   └── BREWING_METHODS_SCRAPING.ipynb   # Scraping + cleaning pipeline
+├── ingestion/                      # Reusable scraper modules (robots, rate limit, retries, cache) + fetch.py
 ├── data/
 │   ├── Coffee_Brewing_Methods_Raw.xlsx      # Raw scraped data
 │   └── Coffee_Brewing_Dashboard_Final.xlsx  # Cleaned dataset (Tableau / Excel dashboard)

@@ -14,7 +14,9 @@ Every path below exists in this repo and is exercised by the tests or CI.
 | Reproducible query outputs | [`sql/run_queries.py`](../sql/run_queries.py), [`docs/query_results/`](query_results/) |
 | Testing (pytest: defect injection, determinism, query results checked against pandas, docs freshness; Streamlit smoke test) | [`tests/test_pipeline.py`](../tests/test_pipeline.py), [`tests/test_queries.py`](../tests/test_queries.py), [`tests/test_app_smoke.py`](../tests/test_app_smoke.py) |
 | CI (tests, end-to-end run, generated-docs freshness gate) | [`.github/workflows/ci.yml`](../.github/workflows/ci.yml) |
-| Web scraping (existing, documented only) | [`notebooks/BREWING_METHODS_SCRAPING.ipynb`](../notebooks/BREWING_METHODS_SCRAPING.ipynb): not re-run or modified here; the pipeline starts from its committed outputs |
+| Web scraping (existing notebook, documented only) | [`notebooks/BREWING_METHODS_SCRAPING.ipynb`](../notebooks/BREWING_METHODS_SCRAPING.ipynb): not re-run or modified here; the pipeline starts from its committed outputs |
+| Reusable, polite web ingestion: `robots.txt` check, identifying User-Agent, rate limiting, retries with backoff, on-disk HTML cache, pure parsers separated from fetching, CSV with timestamp and source URL. Parsers verified on hand-written fixtures; live run not verified in CI | [`ingestion/fetch.py`](../ingestion/fetch.py), [`ingestion/brewing_methods.py`](../ingestion/brewing_methods.py), [`docs/INGESTION.md`](INGESTION.md) |
+| Offline tests for network code (mocked HTTP, fake clock, fixtures) | [`tests/test_ingestion_fetch.py`](../tests/test_ingestion_fetch.py), [`tests/test_ingestion_brewing.py`](../tests/test_ingestion_brewing.py), [`tests/fixtures/`](../tests/fixtures/) |
 | App / BI delivery | Streamlit app [`app.py`](../app.py); Tableau and Colab links in the [README](../README.md) |
 
-Not claimed: no live API ingestion, no orchestration tool, no cloud warehouse, no statistical modelling.
+Not claimed: no verified live ingestion (the ingestion modules have not been run against the live sites), no API ingestion, no orchestration tool, no cloud warehouse, no statistical modelling.
