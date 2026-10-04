@@ -1,0 +1,22 @@
+origin,continent,coffees,avg_rating,best_rating,vs_overall_avg,rank_by_avg,dense_rank_by_best
+Jamaica,North America,1,96.0,96,8.56,1,1
+Panama,North America,1,96.0,96,8.56,1,1
+USA,North America,1,94.0,94,6.56,3,3
+Ethiopia,Africa,2,93.0,94,5.56,4,3
+Colombia,South America,2,91.5,95,4.06,5,2
+Kenya,Africa,2,90.5,91,3.06,6,4
+Tanzania,Africa,1,90.0,90,2.56,7,5
+Rwanda,Africa,1,89.0,89,1.56,8,6
+Costa Rica,North America,2,88.5,89,1.06,9,6
+Guatemala,North America,2,87.5,88,0.06,10,7
+Bolivia,South America,1,87.0,87,-0.44,11,8
+Mexico,North America,2,86.5,87,-0.94,12,8
+Papua New Guinea,Oceania,1,86.0,86,-1.44,13,9
+Peru,South America,1,86.0,86,-1.44,13,9
+Thailand,Asia,1,85.0,85,-2.44,15,10
+Brazil,South America,2,84.5,85,-2.94,16,10
+Indonesia,Asia,3,84.0,85,-3.44,17,10
+Myanmar,Asia,1,84.0,84,-3.44,17,11
+Uganda,Africa,1,84.0,84,-3.44,17,11
+India,Asia,2,82.5,83,-4.94,20,12
+Vietnam,Asia,2,80.0,82,-7.44,21,13

@@ -1,0 +1,12 @@
+continent,processing_method,coffees,pct_of_continent,avg_rating,rating_rank_in_continent
+Africa,Washed,7,100.0,90.0,1
+Asia,Wet Hulled,3,33.3,84.0,1
+Asia,Washed,4,44.4,83.5,2
+Asia,Monsooned,1,11.1,82.0,3
+Asia,Natural,1,11.1,78.0,4
+North America,Washed,6,66.7,91.17,1
+North America,Honey,2,22.2,88.5,2
+North America,Natural,1,11.1,87.0,3
+Oceania,Washed,1,100.0,86.0,1
+South America,Washed,4,66.7,89.0,1
+South America,Natural,2,33.3,84.5,2

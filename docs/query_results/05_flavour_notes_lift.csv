@@ -1,0 +1,9 @@
+flavor_note,coffees,avg_rating,lift_vs_overall,rank_by_avg_rating,rank_by_popularity
+jasmine,3,95.0,7.56,1,7
+floral,6,92.5,5.06,2,4
+bright,4,89.25,1.81,3,6
+berry,3,89.0,1.56,4,7
+fruity,9,87.56,0.12,5,2
+nutty,8,87.25,-0.19,6,3
+chocolate,13,85.38,-2.05,7,1
+earthy,5,82.4,-5.04,8,5

@@ -1,0 +1,14 @@
+method_name,brew_time_min,caffeine_mg,caffeine_level,sleep_impact,coffees_mapped,previous_faster_method,caffeine_change_vs_previous,running_coffees_mapped,coverage_status
+Ristretto,0.37,127,Medium,May affect sleep,0,,,0,No beans in dataset
+Espresso,0.47,124,Medium,May affect sleep,2,Ristretto,-3.0,2,Covered
+Lungo,0.67,186,High,May affect sleep,0,Espresso,62.0,2,No beans in dataset
+AeroPress,1.5,60,Low,Won't disrupt sleep,4,Lungo,-126.0,6,Covered
+Siphon,3.5,150,Medium,May affect sleep,1,AeroPress,90.0,7,Covered
+Turkish,3.5,180,High,May affect sleep,1,Siphon,30.0,8,Covered
+Moka Pot,4.0,548,High,Avoid after 2 PM,2,Turkish,368.0,10,Covered
+French Press,4.5,186,High,May affect sleep,5,Moka Pot,-362.0,15,Covered
+Pour Over,4.5,173,High,May affect sleep,12,French Press,-13.0,27,Covered
+Batch Brew,5.0,150,Medium,May affect sleep,2,Pour Over,-23.0,29,Covered
+Vietnamese Phin,6.5,450,High,Avoid after 2 PM,1,Batch Brew,300.0,30,Covered
+Cold Drip,480.0,75,Low,Won't disrupt sleep,0,Vietnamese Phin,-375.0,30,No beans in dataset
+Cold Brew,1080.0,560,High,Avoid after 2 PM,2,Cold Drip,485.0,32,Covered

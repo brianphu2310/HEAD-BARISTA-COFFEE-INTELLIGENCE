@@ -1,0 +1,33 @@
+coffee_name,origin,rating,quartile_1_is_top,percent_rank,cume_dist,tier
+Jamaica Blue Mountain,Jamaica,96,1,0.968,1.0,Top tier
+Panama Geisha,Panama,96,1,0.968,1.0,Top tier
+Colombia Geisha,Colombia,95,1,0.935,0.938,Top tier
+Ethiopia Yirgacheffe,Ethiopia,94,1,0.871,0.906,Top tier
+Hawaii Kona,USA,94,1,0.871,0.906,Top tier
+Ethiopia Sidamo,Ethiopia,92,1,0.839,0.844,Top tier
+Kenya AA,Kenya,91,1,0.806,0.813,Top tier
+Kenya Peaberry,Kenya,90,1,0.742,0.781,Top tier
+Tanzania Peaberry,Tanzania,90,2,0.742,0.781,Top tier
+Costa Rica Tarrazu,Costa Rica,89,2,0.677,0.719,Upper middle
+Rwanda Bourbon,Rwanda,89,2,0.677,0.719,Upper middle
+Colombia Supremo,Colombia,88,2,0.581,0.656,Upper middle
+Costa Rica Naranjo,Costa Rica,88,2,0.581,0.656,Upper middle
+Guatemala Huehuetenango,Guatemala,88,2,0.581,0.656,Upper middle
+Bolivia Caranavi,Bolivia,87,2,0.484,0.563,Upper middle
+Guatemala Antigua,Guatemala,87,2,0.484,0.563,Upper middle
+Mexico Oaxaca,Mexico,87,3,0.484,0.563,Upper middle
+Mexico Chiapas,Mexico,86,3,0.387,0.469,Upper middle
+Papua New Guinea,Papua New Guinea,86,3,0.387,0.469,Upper middle
+Peru Chanchamayo,Peru,86,3,0.387,0.469,Upper middle
+Brazil Cerrado,Brazil,85,3,0.29,0.375,Upper middle
+Sumatra Mandheling,Indonesia,85,3,0.29,0.375,Upper middle
+Thailand Doi Chang,Thailand,85,3,0.29,0.375,Upper middle
+Brazil Santos,Brazil,84,3,0.161,0.281,Lower
+Myanmar Ywangan,Myanmar,84,4,0.161,0.281,Lower
+Sumatra Lintong,Indonesia,84,4,0.161,0.281,Lower
+Uganda Bugisu,Uganda,84,4,0.161,0.281,Lower
+India Mysore,India,83,4,0.097,0.156,Lower
+Java Preanger,Indonesia,83,4,0.097,0.156,Lower
+India Monsooned Malabar,India,82,4,0.032,0.094,Lower
+Vietnam Arabica,Vietnam,82,4,0.032,0.094,Lower
+Vietnam Robusta,Vietnam,78,4,0.0,0.031,Lower

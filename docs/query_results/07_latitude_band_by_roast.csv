@@ -1,0 +1,5 @@
+latitude_band,coffees,avg_rating,light_roast,medium_roast,dark_roast,avg_rating_light,avg_rating_medium,avg_rating_dark
+0-10,15,89.07,6,6,3,91.0,89.67,84.0
+10-20,16,86.13,0,14,2,,87.0,80.0
+20+,1,84.0,0,1,0,,84.0,
+All coffees,32,87.44,6,21,5,91.0,87.62,82.4

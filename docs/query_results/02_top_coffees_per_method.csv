@@ -1,0 +1,18 @@
+brew_method,rank_in_method,coffee_name,origin,served_brew_method,rating,coffees_for_method
+AeroPress,1,Ethiopia Sidamo,Ethiopia,Aeropress,92,4
+AeroPress,2,Bolivia Caranavi,Bolivia,Aeropress,87,4
+Batch Brew,1,Papua New Guinea,Papua New Guinea,Drip Machine,86,2
+Batch Brew,2,Vietnam Arabica,Vietnam,Drip Machine,82,2
+Cold Brew,1,Costa Rica Tarrazu,Costa Rica,Cold Brew,89,2
+Cold Brew,2,Thailand Doi Chang,Thailand,Cold Brew,85,2
+Espresso,1,Jamaica Blue Mountain,Jamaica,Espresso,96,2
+Espresso,2,Sumatra Mandheling,Indonesia,Espresso,85,2
+French Press,1,Colombia Supremo,Colombia,French Press,88,5
+French Press,2,Mexico Chiapas,Mexico,French Press,86,5
+Moka Pot,1,Myanmar Ywangan,Myanmar,Moka Pot,84,2
+Moka Pot,2,Sumatra Lintong,Indonesia,Moka Pot,84,2
+Pour Over,1,Panama Geisha,Panama,Pour Over,96,12
+Pour Over,2,Colombia Geisha,Colombia,Pour Over,95,12
+Siphon,1,Tanzania Peaberry,Tanzania,Siphon,90,1
+Turkish,1,Java Preanger,Indonesia,Turkish Coffee,83,1
+Vietnamese Phin,1,Vietnam Robusta,Vietnam,Vietnamese Phin,78,1

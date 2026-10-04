@@ -1,0 +1,8 @@
+roast_level,processing_method,coffees,avg_rating,vs_roast_mean_of_cells,overall_rank
+Light,Washed,6,91.0,0.0,1
+Medium,Honey,2,88.5,1.24,2
+Medium,Washed,16,87.94,0.68,3
+Medium,Natural,3,85.33,-1.92,4
+Dark,Wet Hulled,3,84.0,2.67,5
+Dark,Monsooned,1,82.0,0.67,6
+Dark,Natural,1,78.0,-3.33,7

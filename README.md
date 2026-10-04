@@ -460,6 +460,32 @@ Raw values (brew time in minutes, temperature in °C, grind size as text) are in
 
 ---
 
+##  Data Engineering
+
+A runnable, tested ETL pipeline and SQLite star schema built from the files committed in this repo (no network calls; the scraping notebook is documented, not re-run).
+
+```bash
+pip install -r requirements-dev.txt
+python -m pipeline            # extract -> validate -> transform -> load  (writes warehouse.db, docs/DATA_QUALITY.md)
+python -m pipeline.docgen     # regenerate docs/DATA_DICTIONARY.md from the warehouse
+python sql/run_queries.py     # run sql/analysis/*.sql -> docs/query_results/*.csv
+python -m pytest -q           # 36 tests: pipeline, data quality, queries, docs freshness, app smoke test
+```
+
+| Stage | What it does | Code |
+|---|---|---|
+| Extract | Reads `coffee_dataset.csv`, the first sheet of `Coffee_Brewing_Dashboard_Final.xlsx`, and parses the beans, methods and `method_mapping` CTEs of the Streamlit SQL script | `pipeline/extract.py` |
+| Validate | 44 checks (schema, nulls, duplicates, ranges, domains, referential, cross-source reconciliation); report in [`docs/DATA_QUALITY.md`](docs/DATA_QUALITY.md); errors block the load, known source quirks are reported as warnings | `pipeline/validate.py` |
+| Transform | Cleans, maps bean brew-method labels to canonical methods, splits flavour notes into a bridge table, derives rating bands, ordinal encodings and caffeine/sleep labels | `pipeline/transform.py` |
+| Load | Builds `warehouse.db` (gitignored) from `pipeline/schema.sql`: 6 dimensions, 1 fact, 1 bridge, FKs, CHECK constraints, indexes, a flat view | `pipeline/load.py` |
+
+- **Model:** [`docs/DATA_MODEL.md`](docs/DATA_MODEL.md) (Mermaid ER diagram, grain, keys, provenance) and [`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.md) (every column, generated from the warehouse).
+- **Analysis SQL:** 10 SQLite queries in [`sql/analysis/`](sql/analysis/) (CTEs, `RANK`, `NTILE`, `PERCENT_RANK`, `LAG`, `FIRST_VALUE`, running totals, `CASE` pivots); outputs committed in [`docs/query_results/`](docs/query_results/).
+- **Skills map:** [`docs/SKILLS_DEMONSTRATED.md`](docs/SKILLS_DEMONSTRATED.md).
+- **Honest scope:** the committed files hold 32 beans and 13 brewing methods (the "~80" figure quoted elsewhere in this README is not reproduced by these files). The beans/ratings file has no documented source, and the method attributes are hard-coded dictionaries in the notebook (see the provenance table in the data model doc). With 32 rows, results are descriptive rather than statistically strong.
+
+---
+
 ##  Project Structure
 
 ```
@@ -475,9 +501,13 @@ HEAD-BARISTA-COFFEE-INTELLIGENCE/
 │   ├── Coffee_Brewing_Methods_Raw.xlsx      # Raw scraped data
 │   └── Coffee_Brewing_Dashboard_Final.xlsx  # Cleaned dataset (Tableau / Excel dashboard)
 ├── sql/                            # SQL dataset scripts and CSV copy
+│   ├── analysis/                   # 10 SQLite analytical queries
+│   └── run_queries.py              # Runs them -> docs/query_results/*.csv
+├── pipeline/                       # ETL: extract, validate, transform, load (SQLite star schema)
+├── docs/                           # DATA_MODEL, DATA_DICTIONARY, DATA_QUALITY, SKILLS_DEMONSTRATED, query_results/
 │
-├── tests/test_app_smoke.py         # The app must render without errors
-└── .github/workflows/ci.yml        # Runs the tests on every push and PR
+├── tests/                          # App smoke test, pipeline tests, query tests
+└── .github/workflows/ci.yml        # Tests, end-to-end pipeline run, docs-freshness check
 ```
 
 ---

@@ -1,0 +1,11 @@
+method_name,coffees,matching_tier,pct_matching,method_acidity_tier
+Batch Brew,2,2,100.0,Medium
+Siphon,1,1,100.0,High
+Turkish,1,1,100.0,Low
+Vietnamese Phin,1,1,100.0,Low
+French Press,5,4,80.0,Medium
+AeroPress,4,3,75.0,Medium
+Pour Over,12,6,50.0,High
+Espresso,2,1,50.0,Medium
+Moka Pot,2,1,50.0,Medium
+Cold Brew,2,0,0.0,Low
