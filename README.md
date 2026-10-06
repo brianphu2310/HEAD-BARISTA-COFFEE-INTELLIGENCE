@@ -6,6 +6,7 @@
 
 [![Streamlit App](https://img.shields.io/badge/☕_Streamlit_App-Live-00C7A3?style=for-the-badge&logo=streamlit&logoColor=white)](https://testing-wzx24gsioxffy3mkvtvnsj.streamlit.app)
 [![Tableau](https://img.shields.io/badge/📊_Tableau_Dashboard-Live-9B59EF?style=for-the-badge&logo=tableau&logoColor=white)](https://public.tableau.com/app/profile/brian.ma5935/viz/Cofffee_Brian_Project/Dashboard3)
+[![Power BI](https://img.shields.io/badge/Power_BI-Download_.pbix-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://github.com/brianphu2310/HEAD-BARISTA-COFFEE-INTELLIGENCE/raw/main/powerbi/barista_dashboard.pbix)
 [![Colab](https://img.shields.io/badge/📓_Full_Analysis-Google_Colab-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white)](https://colab.research.google.com/drive/1uCOkUri0_LfMO2CzFqoj9uhfkYfHehvo)
 [![Kaggle Dataset](https://img.shields.io/badge/📦_Dataset-Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/brianphu)
 [![License: MIT](https://img.shields.io/badge/License-MIT-gray?style=for-the-badge)](LICENSE)
