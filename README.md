@@ -12,6 +12,18 @@
 
 ---
 
+## At a glance
+
+[![CI](https://github.com/brianphu2310/HEAD-BARISTA-COFFEE-INTELLIGENCE/actions/workflows/ci.yml/badge.svg)](https://github.com/brianphu2310/HEAD-BARISTA-COFFEE-INTELLIGENCE/actions)
+
+| | |
+|---|---|
+| **Question** | Which brewing method and bean suit which customer, and can public data back a recommender? |
+| **What I built** | Scraped and curated brewing dataset in SQL, statistical analysis, a Streamlit bean consultant, Tableau and Power BI dashboards. |
+| **Key results** | Acidity and body are strongly inversely correlated across methods (-0.71). Ethiopian beans suit 7 of 8 methods. AeroPress is the most forgiving route to complex flavour. |
+| **Proof** | CI green, 59 tests; a manual live-ingestion run is recorded in [docs/LIVE_RUN.md](docs/LIVE_RUN.md): Wikipedia 13 rows, Healthline 3, NCA 5 headings. |
+| **Honest limits** | Perfect Daily Grind returned a bot challenge, so it is logged as 0 rows and not bypassed. Sensory scores are curated values, not scraped. Findings rest on a small method-level dataset. |
+
 ## The Problem I Was Actually Trying to Solve
 
 I used to work as a barista — pulling shots, steaming milk, dialling in grinders. It was repetitive in the best possible way. Every morning the same ritual, but every cup slightly different depending on humidity, grind size, tamp pressure, bean origin.
@@ -522,7 +534,7 @@ Sources ported (the four in the notebook): Wikipedia (13 method pages), Healthli
 What it does: checks `robots.txt` (`urllib.robotparser`) and aborts politely if disallowed, sends an identifying User-Agent, waits at least 1 second between requests (default 1.5-2 s), retries with exponential backoff, caches raw HTML under `data/raw_html/` (git-ignored), and writes CSV with `scraped_at` and `source_url` columns. Parsing is separate from fetching: the parsers are pure functions of HTML text. Details in [docs/INGESTION.md](docs/INGESTION.md).
 
 - **Parser verified on fixtures only.** The parser unit tests use small hand-written HTML fixtures (`tests/fixtures/`, labelled as not captured pages) that mimic the selectors the notebook uses.
-- **Live run not verified in CI.** CI has no network access to the target sites, and the live fetch has never been run from this module. The notebook's selectors may no longer match the live markup.
+- **Live run:** a manual GitHub Actions run fetched the sources from a hosted runner; results are in `docs/LIVE_RUN.md` (Wikipedia 13 rows, Healthline 3, NCA 5 headings with empty guide snippets). Perfect Daily Grind returned a bot challenge and is logged as 0 rows; no bypass is attempted. The notebook's selectors may drift as sites change.
 - **Check the site's terms of use before running.** The fetcher reads `robots.txt` and stops if the URL is disallowed, but that is not a substitute for reading the terms.
 - **For personal / portfolio use only.** Do not redistribute scraped content.
 
